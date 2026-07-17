@@ -1,0 +1,15 @@
+[Unit]
+Description=Main application
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/app/current
+ExecStart=/usr/bin/python3 /opt/app/current/main.py
+Restart=on-failure
+RestartSec=5
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target

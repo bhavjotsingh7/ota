@@ -1,0 +1,6 @@
+[Unit]
+Description=OTA watchdog - verifies a new deployment and rolls back on failure
+
+[Service]
+Type=oneshot
+ExecStart=/opt/app/ota/ota_watchdog.sh
