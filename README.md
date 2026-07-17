@@ -42,8 +42,8 @@ Host github.com
 **2. Copy this folder to the Jetson and run the installer:**
 
 ```bash
-scp -r ota-system bhavjotsingh@192.168.55.1:~/
-ssh bhavjotsingh@192.168.55.1
+scp -r ota-system username@ip:~/
+ssh username@ip
 cd ota-system
 ./install.sh
 ```
@@ -72,8 +72,7 @@ journalctl -t ota-check -t ota-watchdog -t ota-rollback -f
   marked — it runs against the *inactive* slot before the symlink flips,
   so a slow install never affects the live app.
 - `health_check.sh` just checks the systemd unit is active by default.
-  Swap in something real once the app exposes one (HTTP health endpoint,
-  checking `/dev/video0` and `/dev/video1` are still enumerated, etc.).
+ 
 - Rollback is fully automatic on a bad deploy, but you can also run
   `sudo /opt/app/ota/ota_rollback.sh` manually at any time.
 - `state.json` lives at `/opt/app/state.json` if you want to inspect or
